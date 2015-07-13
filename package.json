@@ -3,8 +3,9 @@
   "version": "0.0.1",
   "description": "universal javascript logger with contextual logging, leglevel, timing, colors and more",
   "main": "Log.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mrbar42/logex.git"
   },
   "keywords": [
     "log",
@@ -15,6 +16,9 @@
     "universal",
     "isomorphic"
   ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "author": "mrbar42",
   "license": "MIT"
 }
