@@ -193,15 +193,16 @@ obj.verbose("I am a logger too!")
 This will print trace using the console or will print an error stack if trace method is not natively supported
 
 
-#### Miscelaneous methods and props
+#### Miscellaneous methods and props
  These are methods and properties that exist on the logger object but generally speaking there is no reason to use them at the moment
- `
- Log.dateFormat([dateObject], "mask", {boolean} UTC) // returns formatted date string
- Log.formats // predefined common formats (there arn't many... suggestions are welcome!)
- Log.inspect(obj, options) // reference to 'util' module method
- Log.format(...args) // reference to 'util' module method
- Log.console // reference to the original console object
- `
+ ```javascript
+Log.dateFormat([dateObject], "mask", {boolean} UTC) // returns formatted date string
+Log.formats // predefined common formats (there arn't many... suggestions are welcome!)
+Log.inspect(obj, options) // reference to 'util' module method
+Log.format(...args) // reference to 'util' module method
+Log.console // reference to the original console object
+```
+ 
 
 
 ## Variables
@@ -351,5 +352,3 @@ will print:
 #5(clear) total:1950ms   diff: +1100ms  clear the counter
 #6        total:0ms   diff: +0ms     passively starts the timer again 
 ```
-
-
