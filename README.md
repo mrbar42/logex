@@ -271,7 +271,7 @@ Default
 - params should never contain the '%' sign as it reserved for argument assignment
 - If you want to use the same function with several instances you can save data on Log.data {object} this object always starts empty.
 - variable name is available on state.name
-- synchronic!
+- synchronous!
 
 ##### Global declaration
 
