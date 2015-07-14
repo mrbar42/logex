@@ -1,7 +1,12 @@
-
 ## Date formatting
+
+Based on Steven Levithan's script
+
+Taken from [http://blog.stevenlevithan.com/archives/date-time-format](http://blog.stevenlevithan.com/archives/date-time-format)
+
+
  Mask|	Description
- :- | :-
+ ------------- | -------------
  d|      Day of the month as digits; no leading zero for single-digit days.
  dd|     Day of the month as digits; leading zero for single-digit days.
  ddd|	Day of the week as a three-letter abbreviation.
@@ -35,7 +40,7 @@
  ## Common Examples
  
  Name|	        Mask|	                        Example
- :-				|:-								|:-
+ ------------- | -------------			   	 | -------------	
  default|	    ddd mmm dd yyyy HH:MM:ss|	    Sat Jun 09 2007 17:46:21
  shortDate|	    m/d/yy|	                        6/9/07
  mediumDate|	    mmm d, yyyy|	                    Jun 9, 2007

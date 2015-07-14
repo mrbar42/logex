@@ -37,10 +37,10 @@
 
     function sum(x ,y) {
         if (!x || !y) {
+            Log.warn("invalid arguments. (I point myself)");
             Log.userWarn("invalid arguments. (I point 1 invoker up the stack)");
             return
         }
-
         return x + y;
     }
 
@@ -58,6 +58,25 @@
     firstInstance.print("{ID  }{STATUS} {TEST}");
     secondInstance.print("{ID  }{STATUS} {TEST}");
     Log.print("{ID  }{STATUS} {TEST}");
+
+
+    Log.print("#1        total:{BUMP myTimer TOTAL}   diff: {BUMP}");
+    setTimeout(function () {
+        Log.print("#2        total:{BUMP myTimer TOTAL}   diff: {BUMP}");
+    }, 1235);
+    setTimeout(function () {
+        Log.print("#3(reset) total:{BUMP myTimer RESET_TOTAL}   diff: {BUMP RESET}");
+    }, 2435);
+
+    setTimeout(function () {
+        Log.print("#4        total:{BUMP myTimer TOTAL}   diff: {BUMP}    counted relative to last call");
+    }, 3286);
+    setTimeout(function () {
+        Log.print("#5(clear) total:{BUMP myTimer CLEAR_TOTAL}   diff: {BUMP CLEAR}   clear the counter");
+    }, 4386);
+    setTimeout(function () {
+        Log.print("#6        total:{BUMP myTimer TOTAL}   diff: {BUMP}     passively starts the timer again");
+    }, 5286);
 
 
     /*
