@@ -57,6 +57,7 @@ var LEVELS = {
  */
 var Logex = {
     instances: {},
+    /** @memberOf Log */
     variables: variables,
     colors: utils.COLORS,
     console: original,
@@ -68,6 +69,7 @@ var Logex = {
         debug: utils.COLORS.LIGHT_CYAN,
         verbose: utils.COLORS.LIGHT_GRAY
     },
+    /** @memberOf Log */
     LEVELS: LEVELS,
     ORDER: [
         'none',
@@ -78,9 +80,9 @@ var Logex = {
         'verbose'
     ],
     formats: {
-        'default': '{LVL}:{CONTEXT}: {MSG}',
         process: '{PT}/{PID} [{HOUR}] {LVL}:{CONTEXT}: {MSG}'
     },
+    /** @memberOf Log */
     trace: original.trace && original.trace.bind(original) || function trace() {
         var args = Array.prototype.slice.call(arguments);
         var msg = '';
@@ -95,29 +97,45 @@ var Logex = {
             console.log(stack);
         }
     },
+    /** @memberOf Log */
     inspect: function () {
         return util.inspect.apply(util, arguments)
             .replace(/^['"]|['"]$/g, '')
             .replace(/\\'/g, "'")
     },
+    /** @memberOf Log */
     format: util.format.bind(util),
     dateFormat: dateFormat,
+    /** @memberOf Log */
     error: methodFactory('log', {level: LEVELS.error}),
+    /** @memberOf Log */
     warn: methodFactory('log', {level: LEVELS.warn}),
+    /** @memberOf Log */
     log: methodFactory('log', {level: LEVELS.info}),
+    /** @memberOf Log */
     info: methodFactory('info', {level: LEVELS.info}),
+    /** @memberOf Log */
     debug: methodFactory('info', {level: LEVELS.debug}),
+    /** @memberOf Log */
     verbose: methodFactory('log', {level: LEVELS.verbose}),
+    /** @memberOf Log */
     userWarn: methodFactory('log', {level: LEVELS.warn, skip: 1}),
+    /** @memberOf Log */
     e: methodFactory('log', {level: LEVELS.error}),
+    /** @memberOf Log */
     w: methodFactory('log', {level: LEVELS.warn}),
+    /** @memberOf Log */
     l: methodFactory('log', {level: LEVELS.info}),
+    /** @memberOf Log */
     i: methodFactory('info', {level: LEVELS.info}),
+    /** @memberOf Log */
     d: methodFactory('info', {level: LEVELS.debug}),
+    /** @memberOf Log */
     v: methodFactory('log', {level: LEVELS.verbose}),
+    /** @memberOf Log */
     uw: methodFactory('log', {level: LEVELS.warn, skip: 1}),
     /**
-     * @name Logex#print
+     * @name Log#print
      * @param {string|object} [options]
      * @param {string} options.format - define custom format
      * @param {number} options.skip - invokers to skip up the stack
@@ -150,6 +168,7 @@ var Logex = {
         }
         return msg;
     },
+    /** @memberOf Log */
     patch: function (target, methods) {
         if (methods && !Array.isArray(methods)) {
             return console.error('Logex: Invalid patch Methods. must be array.');
@@ -183,7 +202,7 @@ function methodFactory(verb, options) {
 var defaultLevel = Logex.LEVELS[process.env.LOG_LEVEL]
                    || utils.isDebugging() ? Logex.LEVELS.debug : Logex.LEVELS.info;
 
-/** @namespace */
+/** @name Log#options */
 var defaultOptions = {
     level: defaultLevel,
     levelColors: null,
@@ -196,11 +215,10 @@ var defaultOptions = {
 
 /**
  * Create a Logex instance or return existing one
- *
+ * @name Log
  * @param {string|object} [id='default']
- * @param {object} [options={defaultOptions}]
- * @returns {Logex}
- * @constructor
+ * @param {object} [options]
+ * @returns {Log}
  */
 var Log = function (id, options) {
     options = options || typeof id == 'object' && id || {};

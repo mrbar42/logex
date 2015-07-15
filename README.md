@@ -20,6 +20,13 @@ Installation:
 
 *note: all of the options are optional
 
+```javascript
+Log({/* options */})
+
+var logger = Log('namedInstance', {/* options */})
+
+```
+
 Log levels (by priority):
 1. none
 2. error
