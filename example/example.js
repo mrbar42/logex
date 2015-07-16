@@ -3,7 +3,7 @@
 (function (Log) {
 
 
-    Log.level = "asdasd";
+    Log.level = "info";
 
     Log.debug('i will not appear');
 
