@@ -223,7 +223,7 @@ var defaultOptions = {
 var Log = function (id, options) {
     options = options || typeof id == 'object' && id || {};
     id = typeof id == 'string' && id || options.id || 'default';
-
+    original.log("calling id %s. exists?:%s. %j", id, !!Logex.instances[id], options);
     var instance = Logex.instances[id];
     if (!instance) {
         while (!id) {
@@ -259,7 +259,13 @@ var Log = function (id, options) {
     }
 
     // parse options
-    instance.options = utils.merge(instance.options || defaultOptions, options);
+    if (instance.options) {
+        instance.options = utils.merge(instance.options, options);
+    }
+    else {
+        instance.options = utils.merge({}, defaultOptions, options);
+    }
+
     if (instance.options.level && instance.options.level != instance.level) {
         instance.level = instance.options.level;
     }
