@@ -223,7 +223,7 @@ var defaultOptions = {
 var Log = function (id, options) {
     options = options || typeof id == 'object' && id || {};
     id = typeof id == 'string' && id || options.id || 'default';
-    original.log("calling id %s. exists?:%s. %j", id, !!Logex.instances[id], options);
+
     var instance = Logex.instances[id];
     if (!instance) {
         while (!id) {
