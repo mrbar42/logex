@@ -1,6 +1,6 @@
 {
   "name": "logex",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "universal javascript logger with contextual logging, leglevel, timing, colors and more",
   "main": "Log.js",
   "repository": {
